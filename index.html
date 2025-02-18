@@ -2,163 +2,79 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <title>Портфолио редактора</title>
+  <title>Портфолио редактора Веры</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Подключение шрифта Montserrat -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
   <style>
+    /* Сброс стилей */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
     body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      color: #333;
-      background-color: #fafafa;
-      line-height: 1.6;
-    }
-    header {
-      background-color: #f7f7f7;
-      padding: 20px 40px;
+      font-family: 'Montserrat', sans-serif;
+      background: linear-gradient(135deg, #1e3c31, #2e5d3b);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
       text-align: center;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    }
-    header h1 {
-      margin: 0;
-      font-size: 36px;
-    }
-    header p {
-      margin-top: 5px;
-      font-size: 18px;
-      color: #777;
+      padding: 20px;
     }
     .container {
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 20px;
+      background: rgba(0, 0, 0, 0.5);
+      padding: 50px 60px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+      max-width: 800px;
+      width: 90%;
+      animation: fadeIn 1.5s ease-out;
     }
-    section {
-      padding: 40px 0;
-      border-bottom: 1px solid #e0e0e0;
-    }
-    section:last-of-type {
-      border-bottom: none;
-    }
-    h2 {
+    h1 {
+      font-size: 3em;
       margin-bottom: 20px;
-      font-size: 28px;
-      border-left: 4px solid #3498db;
-      padding-left: 10px;
-      color: #3498db;
+      font-weight: 700;
+      letter-spacing: 1px;
     }
-    .services, .works {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
+    p {
+      font-size: 1.2em;
+      margin-bottom: 20px;
+      line-height: 1.5;
     }
-    .service, .work {
-      background-color: #fff;
-      border: 1px solid #e0e0e0;
-      border-radius: 8px;
-      padding: 20px;
-      flex: 1 1 calc(45% - 20px);
-      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    .footer {
+      font-size: 0.8em;
+      opacity: 0.6;
+      margin-top: 30px;
     }
-    .service h3, .work h3 {
-      margin-top: 0;
-      color: #333;
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
-    a {
-      color: #3498db;
-      text-decoration: none;
+    /* Адаптивный дизайн */
+    @media (max-width: 768px) {
+      h1 { font-size: 2.5em; }
+      p { font-size: 1em; }
+      .container { padding: 40px 20px; }
     }
-    a:hover {
-      text-decoration: underline;
-    }
-    footer {
-      background-color: #333;
-      color: #fff;
-      text-align: center;
-      padding: 20px 0;
-      font-size: 14px;
-    }
-    @media (max-width: 600px) {
-      .service, .work {
-        flex: 1 1 100%;
-      }
+    @media (max-width: 480px) {
+      h1 { font-size: 2em; }
+      p { font-size: 0.9em; }
+      .container { padding: 30px 15px; }
     }
   </style>
 </head>
 <body>
-  <header>
-    <div class="container">
-      <h1>Портфолио редактора</h1>
-      <p>Профессиональный редактор, копирайтер и SMM-специалист</p>
-    </div>
-  </header>
-
-  <section id="about">
-    <div class="container">
-      <h2>Обо мне</h2>
-      <p>Меня зовут Иван Иванов. Я профессиональный редактор с более чем 10-летним опытом работы в сфере копирайтинга, редактирования и управления социальными медиа. Моя миссия – создавать качественный контент, который привлекает и удерживает аудиторию. Я работаю как с крупными проектами, так и с индивидуальными заказчиками, всегда стремясь превзойти ожидания.</p>
-    </div>
-  </section>
-
-  <section id="services">
-    <div class="container">
-      <h2>Услуги</h2>
-      <div class="services">
-        <div class="service">
-          <h3>Написание текстов</h3>
-          <p>Создание уникальных и креативных статей, блог-постов и рекламных текстов для различных площадок.</p>
-        </div>
-        <div class="service">
-          <h3>Редактирование</h3>
-          <p>Профессиональная корректура и стилистическая обработка текстов для повышения их качества и читабельности.</p>
-        </div>
-        <div class="service">
-          <h3>Ведение соцсетей</h3>
-          <p>Организация и модерирование групп, разработка контент-плана и проведение SMM-кампаний для увеличения вовлеченности.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="works">
-    <div class="container">
-      <h2>Портфолио</h2>
-      <div class="works">
-        <div class="work">
-          <h3>Статья для журнала "Медиа"</h3>
-          <p>Разработка контент-стратегии и написание серии статей на актуальные темы, адаптированных для целевой аудитории.</p>
-        </div>
-        <div class="work">
-          <h3>Сайт компании "TechLife"</h3>
-          <p>Редактирование материалов, оптимизация текстов и адаптация стиля под требования бренда.</p>
-        </div>
-        <div class="work">
-          <h3>SMM-проект для "FashionHub"</h3>
-          <p>Управление группами в социальных сетях, создание привлекательного контента и увеличение вовлеченности подписчиков.</p>
-        </div>
-        <div class="work">
-          <h3>Копирайтинг для "Foodies"</h3>
-          <p>Написание рекламных текстов и описаний продуктов для сайта, что способствовало увеличению продаж и узнаваемости бренда.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="contact">
-    <div class="container">
-      <h2>Контакты</h2>
-      <p>Email: <a href="mailto:example@mail.ru">example@mail.ru</a></p>
-      <p>Телефон: +7 (123) 456-78-90</p>
-      <p>Соцсети: 
-        <a href="#">Facebook</a> | 
-        <a href="#">Instagram</a> | 
-        <a href="#">LinkedIn</a>
-      </p>
-    </div>
-  </section>
-
-  <footer>
-    <div class="container">
-      <p>&copy; 2025 Иван Иванов. Все права защищены.</p>
-    </div>
-  </footer>
+  <div class="container">
+    <h1>Вера Белека</h1>
+    <p>Добро пожаловать на официальный сайт портфолио редактора Веры Белеки. Здесь вы сможете ознакомиться с последними работами и избранными проектами.</p>
+    <p>Сайт находится в разработке.</p>
+    <div class="footer">© 2025 Вера Белека. Все права защищены.</div>
+  </div>
 </body>
 </html>
