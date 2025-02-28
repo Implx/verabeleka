@@ -2,79 +2,985 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <title>Портфолио редактора Веры</title>
+  <title>Вера Белека - Профессиональный редактор</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Подключение шрифта Montserrat -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+  <!-- Font Awesome для иконок -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <style>
-    /* Сброс стилей */
+    :root {
+      --primary-color: #222222;
+      --secondary-color: #444444;
+      --accent-color: #000000;
+      --text-color: #333333;
+      --light-bg: #f5f5f5;
+      --grey-border: #e0e0e0;
+      --card-shadow: 0 10px 20px rgba(0,0,0,0.05);
+      --transition: all 0.3s ease;
+    }
+
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
+
     body {
-      font-family: 'Montserrat', sans-serif;
-      background: linear-gradient(135deg, #1e3c31, #2e5d3b);
-      color: #fff;
+      font-family: 'Open Sans', sans-serif;
+      background-color: #fff;
+      color: var(--text-color);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+      transition: var(--transition);
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    /* Навигация */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background-color: rgba(255, 255, 255, 0.95);
+      padding: 15px 0;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      transition: var(--transition);
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
       display: flex;
+      justify-content: space-between;
       align-items: center;
-      justify-content: center;
-      height: 100vh;
-      text-align: center;
-      padding: 20px;
     }
-    .container {
-      background: rgba(0, 0, 0, 0.5);
-      padding: 50px 60px;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      border-radius: 10px;
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-      max-width: 800px;
-      width: 90%;
-      animation: fadeIn 1.5s ease-out;
-    }
-    h1 {
-      font-size: 3em;
-      margin-bottom: 20px;
+
+    .nav-logo {
+      font-family: 'Montserrat', sans-serif;
       font-weight: 700;
-      letter-spacing: 1px;
+      font-size: 1.5rem;
+      color: var(--primary-color);
     }
-    p {
-      font-size: 1.2em;
+
+    .nav-links {
+      display: flex;
+      gap: 30px;
+    }
+
+    .nav-links a {
+      color: var(--text-color);
+      font-weight: 500;
+      position: relative;
+    }
+
+    .nav-links a:after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: var(--accent-color);
+      transition: var(--transition);
+    }
+
+    .nav-links a:hover {
+      color: var(--accent-color);
+    }
+
+    .nav-links a:hover:after {
+      width: 100%;
+    }
+
+    /* Header / Вводный блок */
+    header {
+      background-color: var(--primary-color);
+      color: #fff;
+      padding: 180px 0 130px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      background-image: linear-gradient(135deg, rgba(34, 34, 34, 0.95), rgba(68, 68, 68, 0.95)), url('https://images.unsplash.com/photo-1497032628192-86f99bcd76bc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');
+      background-size: cover;
+      background-position: center;
+    }
+
+    header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+      opacity: 0.1;
+      z-index: 0;
+    }
+
+    header .header-content {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    header h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 4rem;
+      font-weight: 700;
+      margin-bottom: 5px;
+      letter-spacing: -1px;
+      line-height: 1.2;
+    }
+
+    header h2.subheading {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2.2rem;
+      font-weight: 500;
+      margin-top: 0;
       margin-bottom: 20px;
-      line-height: 1.5;
+      color: rgba(255, 255, 255, 0.9);
     }
-    .footer {
-      font-size: 0.8em;
-      opacity: 0.6;
-      margin-top: 30px;
+
+    header p {
+      font-size: 1.4rem;
+      margin-bottom: 40px;
+      color: rgba(255, 255, 255, 0.8);
+      font-weight: 300;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
     }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+
+    header a.cta-button {
+      display: inline-block;
+      padding: 15px 35px;
+      background-color: #000000;
+      color: #fff;
+      border-radius: 50px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      transition: var(--transition);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     }
-    /* Адаптивный дизайн */
+
+    header a.cta-button:hover {
+      background-color: #333333;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4);
+    }
+
+    /* Основной контейнер */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 30px;
+    }
+
+    /* Секция */
+    section {
+      padding: 100px 0;
+    }
+
+    section:nth-child(even) {
+      background-color: var(--light-bg);
+    }
+
+    section h2 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2.5rem;
+      text-align: center;
+      margin-bottom: 20px;
+      color: var(--primary-color);
+      position: relative;
+      font-weight: 600;
+    }
+
+    section h2::after {
+      content: "";
+      width: 60px;
+      height: 3px;
+      background-color: var(--accent-color);
+      display: block;
+      margin: 15px auto 20px;
+      border-radius: 3px;
+    }
+
+    section p.section-description {
+      font-size: 1.15rem;
+      margin-bottom: 60px;
+      text-align: center;
+      color: var(--secondary-color);
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+      font-weight: 300;
+    }
+
+    /* Блок "Обо мне" */
+    #about {
+      background-color: #fff;
+    }
+
+    #about .content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    #about .content img {
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: var(--card-shadow);
+      object-fit: cover;
+      object-position: center;
+    }
+
+    #about .content .text {
+      text-align: left;
+    }
+
+    #about .content .text p {
+      text-align: left;
+      margin-bottom: 18px;
+      color: var(--text-color);
+      font-size: 1.05rem;
+      opacity: 0.9;
+    }
+
+    #about .content .text a.read-more-button {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 14px 30px;
+      background-color: var(--primary-color);
+      color: #fff;
+      border-radius: 50px;
+      font-weight: 600;
+      transition: var(--transition);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    #about .content .text a.read-more-button:hover {
+      background-color: var(--secondary-color);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Блок "Портфолио" */
+    #portfolio {
+      background-color: var(--light-bg);
+      padding-bottom: 40px;
+    }
+
+    #portfolio section {
+      padding: 20px 0 60px;
+    }
+
+    #portfolio section:last-child {
+      padding-bottom: 0;
+    }
+
+    #portfolio .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 30px;
+      margin-bottom: 30px;
+    }
+
+    #portfolio section h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2rem;
+      margin-bottom: 15px;
+      color: var(--primary-color);
+      font-weight: 600;
+      text-align: center;
+    }
+
+    .project-card {
+      background-color: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: var(--card-shadow);
+      transition: var(--transition);
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    }
+
+    .project-card img {
+      width: 100%;
+      display: block;
+      height: 230px;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .project-card .info {
+      padding: 25px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .project-card .info h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.25rem !important;
+      margin-bottom: 15px;
+      color: var(--primary-color);
+      font-weight: 600;
+      line-height: 1.3;
+      text-align: left !important;
+    }
+
+    .project-card .info p {
+      color: var(--secondary-color);
+      font-size: 0.95rem;
+      margin-bottom: 20px;
+      line-height: 1.6;
+      flex-grow: 1;
+    }
+
+    .project-card .info a.project-link {
+      color: var(--accent-color);
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: var(--transition);
+      align-self: flex-start;
+      margin-top: auto;
+    }
+
+    .project-card .info a.project-link:hover {
+      color: #333333;
+    }
+
+    .project-card .info a.project-link i {
+      font-size: 0.9rem;
+    }
+
+    /* Блок "Услуги" */
+    #services {
+      background-color: #fff;
+    }
+
+    #services .services-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 30px;
+    }
+
+    #services .service-item {
+      background-color: #fff;
+      border-radius: 10px;
+      padding: 40px 30px;
+      text-align: center;
+      transition: var(--transition);
+      box-shadow: var(--card-shadow);
+      border-bottom: 3px solid transparent;
+    }
+
+    #services .service-item:hover {
+      box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+      transform: translateY(-5px);
+      border-bottom: 3px solid var(--accent-color);
+    }
+
+    #services .service-item i.service-icon {
+      font-size: 2.5rem;
+      margin-bottom: 25px;
+      color: var(--accent-color);
+    }
+
+    #services .service-item h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.4rem;
+      margin-bottom: 18px;
+      color: var(--primary-color);
+      font-weight: 600;
+    }
+
+    #services .service-item p {
+      font-size: 1rem;
+      color: var(--secondary-color);
+      line-height: 1.6;
+    }
+
+    /* Блоки "Навыки" и "Программы" */
+    #skills, #programs {
+      padding: 80px 0;
+    }
+
+    #skills .skills-list, #programs .programs-list {
+	  display: flex;
+	  flex-wrap: wrap;
+	  gap: 15px;
+	  justify-content: center;
+	}
+
+	.skill-tag, .program-tag {
+	  background-color: #fff;
+	  padding: 10px 20px;  /* Уменьшил отступы */
+	  border-radius: 50px;
+	  font-size: 0.95rem;  /* Уменьшил размер шрифта */
+	  color: var(--secondary-color);
+	  transition: var(--transition);
+	  border: 1px solid var(--grey-border);
+	  box-shadow: 0 3px 10px rgba(0,0,0,0.03);
+	  display: flex;       /* Добавил флекс для вертикального центрирования */
+	  align-items: center; /* Вертикальное центрирование текста */
+	  justify-content: center; /* Горизонтальное центрирование текста */
+	  text-align: center;  /* Центрирование текста */
+	}
+
+    .skill-tag:hover, .program-tag:hover {
+      background-color: var(--primary-color);
+      color: #fff;
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    /* Блок "Контакты" */
+    #contacts {
+      background-color: var(--light-bg);
+      padding: 100px 0;
+    }
+
+    #contacts .contact-info {
+	  text-align: center;
+	  font-size: 1.1rem;
+	  color: var(--secondary-color);
+	  max-width: 600px;
+	  margin: 0 auto;
+	  background: white;
+	  padding: 40px;
+	  border-radius: 10px;
+	  box-shadow: var(--card-shadow);
+	}
+
+	#contacts .contact-info p {
+	  margin-bottom: 20px;
+	  display: flex;
+	  align-items: center;
+	  justify-content: center;
+	  gap: 10px;
+	  flex-wrap: wrap; /* Позволяет переносить содержимое на маленьких экранах */
+	}
+
+	#contacts .contact-info i {
+	  color: var(--accent-color);
+	  font-size: 1.3rem;
+	  min-width: 20px; /* Обеспечивает одинаковую ширину для иконок */
+	  text-align: center;
+	}
+
+    #contacts .contact-info a {
+      color: var(--primary-color);
+      font-weight: 600;
+      transition: var(--transition);
+    }
+
+    #contacts .contact-info a:hover {
+      color: var(--accent-color);
+    }
+
+    /* Footer */
+    footer {
+      background-color: var(--primary-color);
+      color: rgba(255, 255, 255, 0.8);
+      text-align: center;
+      padding: 30px 20px;
+      font-size: 0.9rem;
+    }
+
+    /* Адаптивность */
+    @media (max-width: 1024px) {
+      .container {
+        padding: 0 30px;
+      }
+
+      header h1 {
+        font-size: 3.5rem;
+      }
+
+      header p {
+        font-size: 1.3rem;
+      }
+
+      section h2 {
+        font-size: 2.2rem;
+      }
+
+      .project-card img {
+        height: 200px;
+      }
+    }
+
     @media (max-width: 768px) {
-      h1 { font-size: 2.5em; }
-      p { font-size: 1em; }
-      .container { padding: 40px 20px; }
+      .navbar {
+        padding: 15px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      header {
+        padding: 150px 0 100px;
+      }
+
+      header h1 {
+        font-size: 3rem;
+      }
+
+      header h2.subheading {
+        font-size: 1.8rem;
+      }
+
+      header p {
+        font-size: 1.1rem;
+      }
+
+      #about .content {
+        grid-template-columns: 1fr;
+        padding: 0;
+      }
+
+      #about .content img {
+        order: -1;
+        margin-bottom: 30px;
+        max-width: 100%;
+      }
+
+      .project-card {
+        width: 100%;
+      }
+
+      #portfolio .projects-grid {
+        grid-template-columns: 1fr;
+      }
+
+      #services .services-list {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 70px 0;
+      }
+
+      section h2 {
+        font-size: 2rem;
+      }
+
+      section p.section-description {
+        font-size: 1rem;
+      }
     }
+
     @media (max-width: 480px) {
-      h1 { font-size: 2em; }
-      p { font-size: 0.9em; }
-      .container { padding: 30px 15px; }
+      .container {
+        padding: 0 20px;
+      }
+
+      header {
+        padding: 130px 20px 80px;
+      }
+
+      header h1 {
+        font-size: 2.5rem;
+      }
+
+      header h2.subheading {
+        font-size: 1.5rem;
+      }
+
+      header p {
+        font-size: 1rem;
+      }
+
+      header a.cta-button {
+        padding: 12px 25px;
+        font-size: 1rem;
+      }
+
+      #services .service-item {
+        padding: 30px 20px;
+      }
+
+      .skill-tag, .program-tag {
+		padding: 8px 16px; /* Еще меньше на мобильных */
+		font-size: 0.9rem; /* Меньший размер шрифта */
+		min-width: calc(50% - 10px); /* Ширина тега - 50% минус отступ */
+		margin: 0;
+		box-sizing: border-box;
+	  }
+
+      #contacts .contact-info {
+		padding: 25px 15px;
+		font-size: 1rem;
+	  }
+	  
+	  #contacts .contact-info p {
+		flex-direction: column; /* На маленьких экранах стеком */
+		margin-bottom: 25px;
+	  }
+	  
+	  #contacts .contact-info i {
+		margin-bottom: 5px;
+	  }
+
+      section {
+        padding: 60px 0;
+      }
+    }
+
+    /* Плавная прокрутка страницы */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Стили для мобильного меню (гамбургер) */
+    .mobile-menu-btn {
+      display: none;
+      font-size: 1.5rem;
+      color: var(--primary-color);
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      .mobile-menu-btn {
+        display: block;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Вера Белека</h1>
-    <p>Добро пожаловать на официальный сайт портфолио редактора Веры Белеки. Здесь вы сможете ознакомиться с последними работами и избранными проектами.</p>
-    <p>Сайт находится в разработке.</p>
-    <div class="footer">© 2025 Вера Белека. Все права защищены.</div>
-  </div>
+  <!-- Навигация -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="#" class="nav-logo">ВБ</a>
+      <div class="nav-links">
+        <a href="#about">Обо мне</a>
+        <a href="#portfolio">Портфолио</a>
+        <a href="#services">Услуги</a>
+        <a href="#contacts">Контакты</a>
+      </div>
+      <div class="mobile-menu-btn">
+        <i class="fas fa-bars"></i>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Вводный блок / Intro -->
+  <header>
+    <div class="header-content">
+      <h1>Вера Белека</h1>
+      <h2 class="subheading">Профессиональный редактор</h2>
+      <p>Создаю контент, который работает на вас.<br>От постов и статей до лендингов и стратегий в соцсетях.</p>
+      <a href="#contacts" class="cta-button">Связаться со мной</a>
+    </div>
+  </header>
+
+  <!-- Блок "Обо мне" -->
+  <section id="about">
+    <div class="container">
+      <h2>Обо мне</h2>
+      <div class="content">
+        <img src="images/vera.webp" alt="Вера Белека - Профессиональный редактор">
+        <div class="text">
+          <p>Работаю с текстами <strong>уже 8 лет.</strong> Имею профессиональное образование – журналист.</p>
+          <p>Моя специализация – <strong>создание уникального и качественного контента</strong>, редактирование текстов, запуск и продвижение соцсетей.</p>
+          <p><strong>Пишу тексты под любой запрос</strong> – для бизнеса, блогов, услуг, продуктов, образования.</p>
+          <p><strong>Создаю контент</strong>, который отвечает потребностям аудитории.</p>
+          <p><strong>Помогаю запустить и раскрутить ресурс</strong>, повысить трафик и привлечь аудиторию.</p>
+          <p><strong>Редактирую готовые тексты</strong> – на ошибки, штампы, стилистику, ценность и соответствие теме.</p>
+          <p>Работаю грамотно, соблюдаю сроки и договоренности.</p>
+          <a href="#contacts" class="read-more-button">Обсудить проект</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Блок "Портфолио" -->
+  <section id="portfolio">
+    <div class="container">
+      <h2>Портфолио</h2>
+      <p class="section-description">Примеры моих работ в различных форматах и для разных задач.<br>Кликните на проект, чтобы увидеть результат или прототип.</p>
+
+      <!-- SEO-статьи -->
+      <section id="seo-articles">
+        <h3>SEO-статьи</h3>
+        <p class="section-description">Цель: создание статей, оптимизированных для поисковых систем, использование ключевых слов для привлечения целевой аудитории, повышения видимости в поисковых выдачах.</p>
+        <div class="projects-grid">
+          <div class="project-card">
+            <img src="images/shooting-range.webp" alt="Электронный лазертаг-тир для школы">
+            <div class="info">
+              <h3>Электронный лазертаг-тир для школы</h3>
+              <p>Обзор возможностей электронного тира в образовательных учреждениях от компании-производителя LASERWAR.</p>
+              <a href="https://laserwar.ru/articles/elektronnyy-tir-dlya-shkoly-ot-laserwar/" target="_blank" class="project-link">Подробнее <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <img src="images/vr-sport.webp" alt="Как VR-фитнес помогает похудеть">
+            <div class="info">
+              <h3>Как VR-фитнес помогает похудеть</h3>
+              <p>Материал о VR-фитнесе и его влиянии на процесс похудения, современные тренировки и технологии.</p>
+              <a href="https://warstation.ru/media-page/stati/sovremennye-trenirovki-ili-kak-vr-fitnes-pomogaet-pohudet/" target="_blank" class="project-link">Подробнее <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <img src="images/vr-history.webp" alt="От громоздких кабин до лёгких шлемов">
+            <div class="info">
+              <h3>От громоздких кабин до лёгких шлемов</h3>
+              <p>Анализ эволюции технологий виртуальной реальности, от первых немобильных систем до современных VR-очков.</p>
+              <a href="https://warstation.ru/media-page/stati/ot-gromozdkih-kabin-do-lyogkih-shlemov-razvitie-virtualnoj-realnosti/" target="_blank" class="project-link">Подробнее <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Лендинги -->
+      <section id="landings">
+        <h3>Лендинги</h3>
+        <p class="section-description">Цель: создание текстовых прототипов лендингов для продвижения, увеличения конверсии, повышения продаж продукта/услуги, в том числе с использованием ключевых слов.</p>
+        <div class="projects-grid">
+          <div class="project-card">
+            <img src="images/landing-1.webp" alt="Продающий лэндинг для международной франшизы VR-клубов">
+            <div class="info">
+              <h3>Продающий лендинг для международной франшизы WARSTATION</h3>
+              <p>Посадочная страница, созданная для продвижения франшизы VR-клубов и привлечения новых партнёров.</p>
+              <a href="https://warstation.ru/kidsfranchise/" target="_blank" class="project-link">Подробнее <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <img src="images/landing-2.webp" alt="Продуктовый лэндинг о VR-игре для детей и взрослых">
+            <div class="info">
+              <h3>Продуктовый лендинг для детской VR-игры ANIMESTATION</h3>
+              <p>Посадочная страница, созданная для продвижения и продажи VR-игры ANIMESTATION в клубы виртуальности.</p>
+              <a href="https://warstation.ru/animestation/" target="_blank" class="project-link">Подробнее <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Закадровый текст для видеороликов -->
+      <section id="video-voiceover">
+        <h3>Сценарии для видео</h3>
+		<p class="section-description">Цель: подготовка текста для закадрого голоса, титров для продуктовых и бизнесовых видео.</p>
+        <div class="projects-grid">
+          <div class="project-card">
+            <img src="images/scenario-1.webp" alt="Сценарий для рекламного видеоролика">
+            <div class="info">
+              <h3>Сценарий для продуктового видеоролика «Игры-новинки в VR от компании WARSTATION»</h3>
+              <a href="https://vkvideo.ru/video-206763745_456239205" target="_blank" class="project-link">Подробнее <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+		  
+          <div class="project-card">
+            <img src="images/scenario-2.webp" alt="Сценарий для рекламного видеоролика">
+            <div class="info">
+              <h3>Закадровый текст и титры для рекламного видеоролика «Обновлённые VR-игры от WARSTATION»</h3>
+              <a href="https://vkvideo.ru/video-206763745_456239158" target="_blank" class="project-link">Подробнее <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+		  
+          <div class="project-card">
+            <img src="images/scenario-3.webp" alt="Сценарий для рекламного видеоролика">
+            <div class="info">
+              <h3>Титры для тизера презентации международной компании LASERWAR</h3>
+              <a href="https://vkvideo.ru/video-32917194_456240236" target="_blank" class="project-link">Подробнее <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Блок "Рекламная продукция" -->
+      <section id="advertising-products">
+        <h3>Рекламная продукция</h3>
+        <p class="section-description">Цель: создание прототипов для брошюр, буклетов, листовок, баннеров, написание рекламных постов.</p>
+        <div class="projects-grid">
+          <div class="project-card">
+            <img src="images/advertising-1.webp" alt="Рекламный баннер">
+            <div class="info">
+              <h3>Рекламный буклет франшизы игровых мини-арен ROCKET VR</h3>
+              <a href="files/rocketvr.pdf" target="_blank" class="project-link">Подробнее <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+          <div class="project-card">
+            <img src="images/advertising-2.webp" alt="Печатная реклама">
+            <div class="info">
+              <h3>Рекламный буклет франшизы VR-арен WARSTATION</h3>
+              <a href="files/warstation.pdf" target="_blank" class="project-link">Подробнее <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+		  <div class="project-card">
+            <img src="images/advertising-3.webp" alt="Печатная реклама">
+            <div class="info">
+              <h3>Рекламный буклет франшизы VR-арен AVATAR ARENA</h3>
+              <a href="files/avatar.pdf" target="_blank" class="project-link">Подробнее <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Блок "Коммерческие предложения" -->
+      <section id="commercial-offers">
+        <h3>Коммерческие предложения</h3>
+        <p class="section-description">Цель: анализ конкурентов, продуктов и услуг и разработка продающих коммерческих предложений для привлечения клиентов и партнёров.</p>
+        <div class="projects-grid">
+          <div class="project-card">
+            <img src="images/commercial-offer-1.webp" alt="Коммерческое предложение">
+            <div class="info">
+              <h3>КП для компании WARSTATION</h3>
+              <a href="files/CO WS.docx" target="_blank" class="project-link">Подробнее <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+          <div class="project-card">
+            <img src="images/commercial-offer-2.webp" alt="Персонализированное КП">
+            <div class="info">
+              <h3>КП для компании ROCKET VR</h3>
+              <a href="files/CO Rocket VR.docx" target="_blank" class="project-link">Подробнее <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Блок "Социальные сети" -->
+      <section id="social-media">
+        <h3>Социальные сети</h3>
+        <p class="section-description">Цель: подготовка стратегии продвижения и запуск групп, каналов, аккаунтов в социальных сетях.</p>
+        <div class="projects-grid">
+          <div class="project-card">
+            <img src="images/social-media-1.webp" alt="Контент для соцсетей">
+            <div class="info">
+              <h3>ВК-группа производителя лазертаг-оборудования LASERWAR</h3>
+              <p>Примеры постов и стратегий для ведения бизнес-аккаунтов в ВКонтакте с высокой вовлечённостью.</p>
+              <a href="https://vk.com/lasertag" target="_blank" class="project-link">Подробнее <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+          <div class="project-card">
+            <img src="images/social-media-2.webp" alt="Рекламные кампании">
+            <div class="info">
+              <h3>Telegram-канал для родителей с советами и лайфхаками</h3>
+              <p>Примеры постов и стратегий для ведения канала для семей с детьми дошкольного возраста.</p>
+              <a href="https://t.me/+AdxDamLT3uRjNzUy" target="_blank" class="project-link">Подробнее <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+		  <div class="project-card">
+            <img src="images/social-media-3.webp" alt="Рекламные кампании">
+            <div class="info">
+              <h3>ВК-группа, Telegram-канал франшизы игровых VR-арен WARSTATION</h3>
+              <p>Примеры постов и стратегий для ведения группы и канала для бизнес-партнёров франшизы.</p>
+              <a href="https://vk.com/warstation_franchise" target="_blank" class="project-link">Подробнее <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </section>
+
+  <!-- Блок "Услуги" -->
+  <section id="services">
+    <div class="container">
+      <h2>Услуги</h2>
+      <p class="section-description">Мои ключевые услуги, которые помогут достичь ваших целей и привлечь целевую аудиторию.</p>
+      <div class="services-list">
+        
+        <div class="service-item">
+          <i class="fas fa-pencil-ruler service-icon"></i>
+          <h3>Копирайтинг</h3>
+          <p>Создание уникальных, продающих и информативных текстов для сайтов, соцсетей, рекламы.</p>
+        </div>
+        <div class="service-item">
+          <i class="fas fa-bullhorn service-icon"></i>
+          <h3>Контент-маркетинг</h3>
+          <p>Разработка контент-стратегий, создание контент-планов и ведение социальных сетей.</p>
+        </div>
+      <div class="service-item">
+          <i class="fas fa-file-alt service-icon"></i>
+          <h3>Корректура</h3>
+          <p>Профессиональная вычитка и стилистическая правка текстов любой сложности.</p>
+        </div>
+		</div>
+    </div>
+  </section>
+
+  <!-- Блок "Навыки" -->
+  <section id="skills">
+    <div class="container">
+      <h2>Навыки</h2>
+      <p class="section-description">Ключевые навыки, которые позволяют мне эффективно решать задачи клиентов и достигать поставленных целей.</p>
+      <div class="skills-list">
+        <div class="skill-tag">Редактирование текстов</div>
+        <div class="skill-tag">Копирайтинг</div>
+        <div class="skill-tag">SEO-оптимизация</div>
+        <div class="skill-tag">Контент-стратегия</div>
+        <div class="skill-tag">SMM</div>
+        <div class="skill-tag">Креативное письмо</div>
+        <div class="skill-tag">Анализ ЦА</div>
+        <div class="skill-tag">Работа в команде</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Блок "Программы" -->
+  <section id="programs">
+    <div class="container">
+      <h2>Программы</h2>
+      <p class="section-description">Программы и инструменты, которые я использую в работе для достижения наилучших результатов.</p>
+      <div class="programs-list">
+        <div class="program-tag">Microsoft Word</div>
+        <div class="program-tag">Google Docs</div>
+        <div class="program-tag">Axure</div>
+        <div class="program-tag">SMMplanner</div>
+        <div class="program-tag">WordPress</div>
+        <div class="program-tag">Tilda</div>
+        <div class="program-tag">NotiSend</div>
+        <div class="program-tag">Kaiten</div>
+		<div class="program-tag">FreeCam</div>
+		<div class="program-tag">Adobe Acrobat</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Блок "Контакты" -->
+  <section id="contacts">
+    <div class="container">
+      <h2>Контакты</h2>
+      <p class="section-description">Свяжитесь со мной, чтобы обсудить ваш проект или задать вопросы. Я открыта для новых возможностей сотрудничества.</p>
+      <div class="contact-info">
+        <p><i class="fas fa-envelope"></i> Email: <a href="mailto:your.email@example.com">vera.beleka@mail.ru</a></p>
+        <p><i class="fas fa-phone"></i> Телефон, WhatsApp: <a href="tel:+7XXX-XXX-XX-XX">+7 (905) 161-22-37</a></p>
+        <p><i class="fab fa-telegram"></i> Telegram: <a href="https://t.me/verabeleka" target="_blank">@verabeleka</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Вера Белека. Все права защищены.</p>
+  </footer>
 </body>
 </html>
