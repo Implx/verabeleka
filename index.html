@@ -47,7 +47,6 @@
       height: auto;
     }
 
-    /* Навигация */
     .navbar {
       position: fixed;
       top: 0;
@@ -106,7 +105,6 @@
       width: 100%;
     }
 
-    /* Header / Вводный блок */
     header {
       background-color: var(--primary-color);
       color: #fff;
@@ -184,14 +182,12 @@
       box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4);
     }
 
-    /* Основной контейнер */
     .container {
       max-width: 1200px;
       margin: 0 auto;
       padding: 0 30px;
     }
 
-    /* Секция */
     section {
       padding: 100px 0;
     }
@@ -231,7 +227,6 @@
       font-weight: 300;
     }
 
-    /* Блок "Обо мне" */
     #about {
       background-color: #fff;
     }
@@ -281,7 +276,6 @@
       box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
     }
 
-    /* Блок "Портфолио" */
     #portfolio {
       background-color: var(--light-bg);
       padding-bottom: 40px;
@@ -379,7 +373,6 @@
       font-size: 0.9rem;
     }
 
-    /* Блок "Услуги" */
     #services {
       background-color: #fff;
     }
@@ -426,33 +419,31 @@
       line-height: 1.6;
     }
 
-    /* Блоки "Навыки" и "Программы" */
     #skills, #programs {
       padding: 80px 0;
     }
 
     #skills .skills-list, #programs .programs-list {
-	  display: flex;
-	  flex-wrap: wrap;
-	  gap: 15px;
-	  justify-content: center;
-	}
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      justify-content: center;
+    }
 
-	.skill-tag, .program-tag {
-	  background-color: #fff;
-	  padding: 10px 20px;  /* Уменьшил отступы */
-	  border-radius: 50px;
-	  font-size: 0.95rem;  /* Уменьшил размер шрифта */
-	  color: var(--secondary-color);
-	  transition: var(--transition);
-	  border: 1px solid var(--grey-border);
-	  box-shadow: 0 3px 10px rgba(0,0,0,0.03);
-	  display: flex;       /* Добавил флекс для вертикального центрирования */
-	  align-items: center; /* Вертикальное центрирование текста */
-	  justify-content: center; /* Горизонтальное центрирование текста */
-	  text-align: center;  /* Центрирование текста */
-	}
-
+   .skill-tag, .program-tag {
+      background-color: #fff;
+      padding: 10px 20px;
+      border-radius: 50px;
+      font-size: 0.95rem;
+      color: var(--secondary-color);
+      transition: var(--transition);
+      border: 1px solid var(--grey-border);
+      box-shadow: 0 3px 10px rgba(0,0,0,0.03);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
     .skill-tag:hover, .program-tag:hover {
       background-color: var(--primary-color);
       color: #fff;
@@ -460,39 +451,38 @@
       box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     }
 
-    /* Блок "Контакты" */
     #contacts {
       background-color: var(--light-bg);
       padding: 100px 0;
     }
 
     #contacts .contact-info {
-	  text-align: center;
-	  font-size: 1.1rem;
-	  color: var(--secondary-color);
-	  max-width: 600px;
-	  margin: 0 auto;
-	  background: white;
-	  padding: 40px;
-	  border-radius: 10px;
-	  box-shadow: var(--card-shadow);
-	}
+      text-align: center;
+      font-size: 1.1rem;
+      color: var(--secondary-color);
+      max-width: 600px;
+      margin: 0 auto;
+      background: white;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: var(--card-shadow);
+    }
 
-	#contacts .contact-info p {
-	  margin-bottom: 20px;
-	  display: flex;
-	  align-items: center;
-	  justify-content: center;
-	  gap: 10px;
-	  flex-wrap: wrap; /* Позволяет переносить содержимое на маленьких экранах */
-	}
+    #contacts .contact-info p {
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
 
-	#contacts .contact-info i {
-	  color: var(--accent-color);
-	  font-size: 1.3rem;
-	  min-width: 20px; /* Обеспечивает одинаковую ширину для иконок */
-	  text-align: center;
-	}
+    #contacts .contact-info i {
+      color: var(--accent-color);
+      font-size: 1.3rem;
+      min-width: 20px;
+      text-align: center;
+    }
 
     #contacts .contact-info a {
       color: var(--primary-color);
@@ -504,7 +494,6 @@
       color: var(--accent-color);
     }
 
-    /* Footer */
     footer {
       background-color: var(--primary-color);
       color: rgba(255, 255, 255, 0.8);
@@ -513,7 +502,6 @@
       font-size: 0.9rem;
     }
 
-    /* Адаптивность */
     @media (max-width: 1024px) {
       .container {
         padding: 0 30px;
@@ -541,8 +529,24 @@
         padding: 15px;
       }
 
-      .nav-links {
+    .nav-links {
         display: none;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: rgba(255, 255, 255, 0.95);
+        flex-direction: column;
+        text-align: center;
+     }
+      .nav-links.active {
+        display: flex;
+      }
+
+
+      .nav-links a {
+          padding: 15px;
+          display: block;
       }
 
       header {
@@ -628,38 +632,36 @@
       }
 
       .skill-tag, .program-tag {
-		padding: 8px 16px; /* Еще меньше на мобильных */
-		font-size: 0.9rem; /* Меньший размер шрифта */
-		min-width: calc(50% - 10px); /* Ширина тега - 50% минус отступ */
-		margin: 0;
-		box-sizing: border-box;
-	  }
+      padding: 8px 16px;
+      font-size: 0.9rem;
+      min-width: calc(50% - 10px);
+      margin: 0;
+      box-sizing: border-box;
+      }
 
       #contacts .contact-info {
-		padding: 25px 15px;
-		font-size: 1rem;
-	  }
-	  
-	  #contacts .contact-info p {
-		flex-direction: column; /* На маленьких экранах стеком */
-		margin-bottom: 25px;
-	  }
-	  
-	  #contacts .contact-info i {
-		margin-bottom: 5px;
-	  }
+      padding: 25px 15px;
+      font-size: 1rem;
+      }
+
+      #contacts .contact-info p {
+      flex-direction: column;
+      margin-bottom: 25px;
+      }
+
+      #contacts .contact-info i {
+      margin-bottom: 5px;
+      }
 
       section {
         padding: 60px 0;
       }
     }
 
-    /* Плавная прокрутка страницы */
     html {
       scroll-behavior: smooth;
     }
 
-    /* Стили для мобильного меню (гамбургер) */
     .mobile-menu-btn {
       display: none;
       font-size: 1.5rem;
@@ -982,5 +984,36 @@
   <footer>
     <p>© 2025 Вера Белека. Все права защищены.</p>
   </footer>
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    const navLinks = document.querySelector('.nav-links');
+
+    // Функция открытия/закрытия меню
+    function toggleMenu() {
+        navLinks.classList.toggle('active');
+    }
+
+    // Открытие/закрытие меню по клику на кнопку
+    mobileMenuBtn.addEventListener('click', toggleMenu);
+
+    // Закрытие меню при клике вне меню
+    document.addEventListener('click', function(event) {
+      if (!navLinks.contains(event.target) && !mobileMenuBtn.contains(event.target) && navLinks.classList.contains('active')) {
+        toggleMenu();
+      }
+    });
+
+     // Закрытие меню при клике на ссылку
+      navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          if(navLinks.classList.contains('active')){
+            toggleMenu();
+          }
+        });
+      });
+  });
+</script>
+  
 </body>
 </html>
